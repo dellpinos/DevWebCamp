@@ -1,18 +1,21 @@
 <main class="auth">
     <h2 class="auth__heading"><?php echo $titulo ?></h2>
-    <p class="auth__texto">Recupera tu acceso a DevWebCamp</p>
+    <p class="auth__texto">Coloca tu nuevo password</p>
 
     <?php require_once __DIR__ . '/../templates/alertas.php'; ?>
 
 
-    <form class="formulario" method="POST" action="/olvide">
+    <?php if($token_valido) { ?>
+    <form class="formulario" method="POST">
         <div class="formulario__campo">
-            <label class="formulario__label" for="email">Email</label>
-            <input class="formulario__input" type="email" placeholder="Tu email" id="email" name="email">
+            <label class="formulario__label" for="password">Nuevo password</label>
+            <input class="formulario__input" type="password" placeholder="Tu nuevo password" id="password" name="password">
         </div>
     
-        <input type="submit" class="formulario__submit" value="Enviar instrucciones">
+        <input type="submit" class="formulario__submit" value="Guardar password">
     </form>
+
+    <?php } ?>
 
     <div class="acciones">
         <a href="/login" class="acciones__enlace">Si ya tenés una cuenta. Iniciar sesión</a>
