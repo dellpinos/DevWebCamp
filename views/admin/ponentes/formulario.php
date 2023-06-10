@@ -23,7 +23,7 @@
 
     <div class="formulario__campo">
         <label for="imagen" class="formulario__label">Imagen</label>
-        <input type="file" class="formulario__input formulario__input--file" id="imagen" name="ciudad">
+        <input type="file" class="formulario__input formulario__input--file" id="imagen" name="imagen">
     </div>
 
 </fieldset>
@@ -76,15 +76,6 @@
                 <i class="fa-brands fa-instagram"></i>
             </div>
         <input type="text" class="formulario__input--sociales" name="redes[instagram]" placeholder="Instagram" value="<?php echo $ponente->instagram ?? ''; ?>">
-        </div>
-    </div>
-
-    <div class="formulario__campo">
-        <div class="formulario__contenedor-icono">
-            <div class="formulario__icono">
-                <i class="fa-brands fa-youtube"></i>
-            </div>
-        <input type="text" class="formulario__input--sociales" name="redes[youtube]" placeholder="YouTube" value="<?php echo $ponente->youtube ?? ''; ?>">
         </div>
     </div>
 
