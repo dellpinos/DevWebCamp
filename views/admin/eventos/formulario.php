@@ -24,19 +24,21 @@
     <div class="formulario__campo">
         <label for="descripcion" class="formulario__label">Selecciona el dia</label>
         <div class="formulario__radio">
-            <?php foreach($dias as $dia) : ?>
+            <?php foreach ($dias as $dia) : ?>
                 <div>
                     <label for="<?php echo strtolower($dia->nombre); ?>"><?php echo $dia->nombre; ?></label>
                     <input type="radio" id="<?php echo strtolower($dia->nombre); ?>" name="dia" value="<?php echo $dia->id; ?>">
                 </div>
             <?php endforeach; ?>
         </div>
+        
+        <input type="hidden" name="dia_id" value="">
     </div>
 
     <div id="horas" class="formulario__campo">
         <label class="formulario__label">Seleccionar Hora</label>
-        <ul class="horas">
-            <?php foreach($horas as $hora) : ?>
+        <ul id="horas" class="horas">
+            <?php foreach ($horas as $hora) : ?>
                 <li class="horas__hora"><?php echo $hora->hora; ?></li>
             <?php endforeach; ?>
         </ul>
