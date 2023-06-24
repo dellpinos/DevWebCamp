@@ -156,15 +156,22 @@ class ActiveRecord
         return array_shift($resultado);
     }
 
+    // Retornar registros siguiendo un orden
+    public static function ordenar($columna, $orden)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY {$columna} {$orden}";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
 
     // Busqueda WHERE, multiples opciones
     public static function whereArray($array = [])
     {
         $query = "SELECT * FROM " . static::$tabla . " WHERE ";
-        foreach($array as $key => $value) {
-            if($key === array_key_last($array)) {
+        foreach ($array as $key => $value) {
+            if ($key === array_key_last($array)) {
                 $query .= " {$key} = '{$value}'";
-
             } else {
                 $query .= " {$key} = '{$value}' AND ";
             }
