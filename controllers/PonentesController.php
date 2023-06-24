@@ -12,11 +12,14 @@ class PonentesController
 
     public static function index(Router $router)
     {
+        if (!is_admin()) {
+            header('Location: /login');
+        }
 
         $pagina_actual = $_GET['page'];
         $pagina_actual = filter_var($pagina_actual, FILTER_VALIDATE_INT);
 
-        if(!$pagina_actual || $pagina_actual < 1) {
+        if (!$pagina_actual || $pagina_actual < 1) {
             header('Location: /admin/ponentes?page=1');
         }
         $registros_por_pagina = 5;
@@ -24,16 +27,14 @@ class PonentesController
 
         $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total_registros);
 
-        if($paginacion->totalPaginas() < $pagina_actual) {
+        if ($paginacion->totalPaginas() < $pagina_actual) {
             header('Location: /admin/ponentes?page=1');
         }
 
         $ponentes = Ponente::paginar($registros_por_pagina, $paginacion->offset());
 
 
-        if(!is_admin()) {
-            header('Location: /login');
-        }
+        
 
         $router->render('admin/ponentes/index', [
             'titulo' => 'Ponentes / Conferencistas',
@@ -45,7 +46,7 @@ class PonentesController
 
     public static function crear(Router $router)
     {
-        if(!is_admin()) {
+        if (!is_admin()) {
             header('Location: /login');
         }
 
@@ -54,7 +55,7 @@ class PonentesController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            if(!is_admin()) {
+            if (!is_admin()) {
                 header('Location: /login');
             }
 
@@ -101,8 +102,6 @@ class PonentesController
             }
         }
 
-
-
         $router->render('admin/ponentes/crear', [
             'titulo' => 'Registrar Ponente',
             'alertas' => $alertas,
@@ -113,14 +112,13 @@ class PonentesController
 
     public static function editar(Router $router)
     {
-        if(!is_admin()) {
+        if (!is_admin()) {
             header('Location: /login');
         }
 
         $alertas = [];
 
         // Validar id
-
         $id = $_GET['id'];
         $id = filter_var($id, FILTER_VALIDATE_INT);
 
@@ -140,7 +138,7 @@ class PonentesController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            if(!is_admin()) {
+            if (!is_admin()) {
                 header('Location: /login');
             }
 
@@ -156,10 +154,10 @@ class PonentesController
 
                 $nombre_imagen = $ponente->imagen;
 
-                if(file_exists($carpeta_imagenes . '/' . $nombre_imagen . ".png")) {
+                if (file_exists($carpeta_imagenes . '/' . $nombre_imagen . ".png")) {
                     unlink($carpeta_imagenes . '/' . $nombre_imagen . ".png");
                 }
-                if(file_exists($carpeta_imagenes . '/' . $nombre_imagen . ".webp")) {
+                if (file_exists($carpeta_imagenes . '/' . $nombre_imagen . ".webp")) {
                     unlink($carpeta_imagenes . '/' . $nombre_imagen . ".webp");
                 }
 
@@ -186,7 +184,7 @@ class PonentesController
 
                 $resultado = $ponente->guardar();
 
-                if($resultado) {
+                if ($resultado) {
                     header('Location: /admin/ponentes');
                 }
             }
@@ -200,20 +198,22 @@ class PonentesController
         ]);
     }
 
-    public static function eliminar() {
+    public static function eliminar()
+    {
 
-        if(!is_admin()) {
-            header('Location: /login');
-        }
 
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (!is_admin()) {
+                header('Location: /login');
+            }
             $id = $_POST['id'];
             $ponente = Ponente::find($id);
-            if(!isset($ponente)) {
+            if (!isset($ponente)) {
                 header('Location: /admin/ponentes');
             }
             $resultado = $ponente->eliminar();
-            if($resultado) {
+            if ($resultado) {
                 header('Location: /admin/ponentes');
             }
         }
