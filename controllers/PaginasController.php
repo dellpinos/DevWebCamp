@@ -15,10 +15,42 @@ class PaginasController
 
     public static function index(Router $router)
     {
+        $eventos = Evento::ordenar('hora_id', 'ASC');
+
+        $eventos_formateados = [];
+        foreach ($eventos as $evento) {
+            $evento->categoria = Categoria::find($evento->categoria_id);
+            $evento->dia = Dia::find($evento->dia_id);
+            $evento->hora = Hora::find($evento->hora_id);
+            $evento->ponente = Ponente::find($evento->ponente_id);
+
+            if ($evento->dia_id === '1' && $evento->categoria_id === '1') {
+                $eventos_formateados['conferencias_v'][] = $evento;
+            }
+            if ($evento->dia_id === '2' && $evento->categoria_id === '1') {
+                $eventos_formateados['conferencias_s'][] = $evento;
+            }
+            if ($evento->dia_id === '1' && $evento->categoria_id === '2') {
+                $eventos_formateados['workshops_v'][] = $evento;
+            }
+            if ($evento->dia_id === '2' && $evento->categoria_id === '2') {
+                $eventos_formateados['workshops_s'][] = $evento;
+            }
+        }
+
+        // Obtener total de cada bloque
+        $ponentes = Ponente::total();
+        $conferencias = Evento::total('categoria_id', 1);
+        $workshops = Evento::total('categoria_id', 2);
+
 
 
         $router->render('paginas/index', [
             'titulo' => "Inicio",
+            'eventos' => $eventos_formateados,
+            'ponentes' => $ponentes,
+            'conferencias' => $conferencias,
+            'workshops' => $workshops
         ]);
     }
 
@@ -27,7 +59,7 @@ class PaginasController
 
 
         $router->render('paginas/devwebcamp', [
-            'titulo' => "Sobre DevWebCamp",
+            'titulo' => "Sobre DevWebCamp"
         ]);
     }
 
@@ -36,7 +68,7 @@ class PaginasController
 
 
         $router->render('paginas/paquetes', [
-            'titulo' => "Paquetes DevWebCamp",
+            'titulo' => "Paquetes DevWebCamp"
         ]);
     }
 
@@ -65,6 +97,8 @@ class PaginasController
                 $eventos_formateados['workshops_s'][] = $evento;
             }
         }
+
+        
 
 
         $router->render('paginas/conferencias', [
