@@ -2,19 +2,19 @@
 
 <section class="resumen">
     <div class="resumen__grid">
-        <div class="resumen__bloque">
+        <div data-aos="fade-right" class="resumen__bloque">
             <p class="resumen__texto resumen__texto--numero"><?php echo $ponentes_total ?></p>
             <p class="resumen__texto">Speakers</p>
         </div>
-        <div class="resumen__bloque">
+        <div data-aos="fade-left" class="resumen__bloque">
             <p class="resumen__texto resumen__texto--numero"><?php echo $conferencias_total ?></p>
             <p class="resumen__texto">Conferencias</p>
         </div>
-        <div class="resumen__bloque">
+        <div data-aos="fade-right" class="resumen__bloque">
             <p class="resumen__texto resumen__texto--numero"><?php echo $workshops_total ?></p>
             <p class="resumen__texto">Workshops</p>
         </div>
-        <div class="resumen__bloque">
+        <div data-aos="fade-left" class="resumen__bloque">
             <p class="resumen__texto resumen__texto--numero">500</p>
             <p class="resumen__texto">Asistentes</p>
         </div>
@@ -106,7 +106,7 @@
             <p class="boleto__precio">Gratis - $0</p>
         </div>
     </div>
-    <div class="boleto__enlace-contendor">
+    <div class="boleto__enlace-contenedor">
         <a href="/paquetes" class="boleto__enlace">Ver Paquetes</a>
     </div>
 </section>
