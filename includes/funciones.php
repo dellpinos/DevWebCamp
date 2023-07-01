@@ -32,3 +32,10 @@ function is_admin(): bool
     }
     return isset($_SESSION['admin']) && !empty($_SESSION['admin']);
 }
+
+function aos_animacion(): void
+{
+
+    $efectos = ['flip-up', 'zoom-in-down', 'zoom-in-up', 'fade-up', 'fade-down', 'flip-left', 'flip-right'];
+    echo $efecto = $efectos[array_rand($efectos, 1)];
+}

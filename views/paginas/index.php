@@ -2,19 +2,19 @@
 
 <section class="resumen">
     <div class="resumen__grid">
-        <div data-aos="fade-right" class="resumen__bloque">
+        <div data-aos="fade-right" data-aos-delay="50" class="resumen__bloque">
             <p class="resumen__texto resumen__texto--numero"><?php echo $ponentes_total ?></p>
             <p class="resumen__texto">Speakers</p>
         </div>
-        <div data-aos="fade-left" class="resumen__bloque">
+        <div data-aos="fade-left" data-aos-delay="50" class="resumen__bloque">
             <p class="resumen__texto resumen__texto--numero"><?php echo $conferencias_total ?></p>
             <p class="resumen__texto">Conferencias</p>
         </div>
-        <div data-aos="fade-right" class="resumen__bloque">
+        <div data-aos="fade-right" data-aos-delay="50" class="resumen__bloque">
             <p class="resumen__texto resumen__texto--numero"><?php echo $workshops_total ?></p>
             <p class="resumen__texto">Workshops</p>
         </div>
-        <div data-aos="fade-left" class="resumen__bloque">
+        <div data-aos="fade-left" data-aos-delay="50" class="resumen__bloque">
             <p class="resumen__texto resumen__texto--numero">500</p>
             <p class="resumen__texto">Asistentes</p>
         </div>
@@ -26,7 +26,7 @@
     <p class="speakers__descripcion">Conoce a nuestros expertos</p>
     <div class="speakers__grid">
         <?php foreach ($ponentes as $ponente) : ?>
-            <div class="speaker">
+            <div data-aos="<?php aos_animacion(); ?>" class="speaker">
                 <picture>
                     <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen; ?>.webp" type="image/webp">
                     <source srcset="<?php echo $_ENV['HOST'] . '/img/speakers/' . $ponente->imagen; ?>.png" type="image/png">
