@@ -11,6 +11,8 @@ class Registro extends ActiveRecord {
     public $pago_id;
     public $token;
     public $usuario_id;
+    public $usuario;
+    public $paquete;
 
     public function __construct($args = [])
     {
