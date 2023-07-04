@@ -19,7 +19,7 @@
             <p class="header__texto">Octubre 5-6 - 2025</p>
             <p class="header__texto header__texto--modalidad">En Linea - Presencial</p>
 
-            <a href="/registro" class="header__boton">Comprar Pase</a>
+            <a href="/registro#nav-scroll" class="header__boton">Comprar Pase</a>
         </div>
     </div>
 
@@ -29,11 +29,12 @@
         <a href="/">
             <h2 class="barra__logo">&#60DevWebCamp/&gt</h2>
         </a>
-        <nav class="navegacion">
-            <a href="/devwebcamp" class="navegacion__enlace <?php echo pagina_actual('/devwebcamp') ? 'navegacion__enlace--actual' : ''; ?>">Evento</a>
-            <a href="/paquetes" class="navegacion__enlace <?php echo pagina_actual('/paquetes') ? 'navegacion__enlace--actual' : ''; ?>">Paquetes</a>
-            <a href="/workshops-conferencias" class="navegacion__enlace <?php echo pagina_actual('/workshops-conferencias') ? 'navegacion__enlace--actual' : ''; ?>">Workshop / Conferencias</a>
-            <a href="/registro" class="navegacion__enlace <?php echo pagina_actual('/registro') ? 'navegacion__enlace--actual' : ''; ?>">Comprar Pase</a>
+        <nav class="navegacion" id="nav-scroll">
+            <a href="/devwebcamp#nav-scroll" class="navegacion__enlace <?php echo pagina_actual('/devwebcamp') ? 'navegacion__enlace--actual' : ''; ?>">Evento</a>
+            <a href="/paquetes#nav-scroll" class="navegacion__enlace <?php echo pagina_actual('/paquetes') ? 'navegacion__enlace--actual' : ''; ?>">Paquetes</a>
+            <a href="/workshops-conferencias#nav-scroll" class="navegacion__enlace <?php echo pagina_actual('/workshops-conferencias') ? 'navegacion__enlace--actual' : ''; ?>">Workshop / Conferencias</a>
+            <a href="/registro#nav-scroll" class="navegacion__enlace <?php echo pagina_actual('/registro') ? 'navegacion__enlace--actual' : ''; ?>">Comprar Pase</a>
         </nav>
     </div>
 </div>
+

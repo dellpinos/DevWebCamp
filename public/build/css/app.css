@@ -451,7 +451,7 @@ h3 {
 }
 .paquete__precio {
   font-size: 6rem;
-  margin: 3rem 0 0 0;
+  margin: 3rem 0 3rem 0;
   color: #007df4;
   font-weight: 900;
   text-align: center;
@@ -1537,5 +1537,23 @@ h3 {
 .listado-ponentes__ponente--seleccionado {
   background-color: #007df4;
   color: #FFFFFF;
+}
+
+.eventos-registro {
+  width: min(95%, 140rem);
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .eventos-registro__listado {
+    flex: 0 0 60%;
+  }
+}
+
+@media (min-width: 768px) {
+  .registro {
+    flex: 0 0 40%;
+  }
 }
 /*# sourceMappingURL=app.css.map */

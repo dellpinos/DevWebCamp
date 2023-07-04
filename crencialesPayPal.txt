@@ -1,0 +1,16 @@
+// Business
+
+email:
+sb-r4voh26227604@business.example.com
+
+password:
+Tx?wpw2A
+
+
+// Personal
+
+email:
+sb-x431ni26490596@personal.example.com
+
+password:
+Z&"jNk+9
