@@ -13,5 +13,13 @@
             </picture>
             <p class="evento__autor-nombre"><?php echo $evento->ponente->nombre . " " . $evento->ponente->apellido; ?></p>
         </div>
+
+        <button 
+        type="button" 
+        data-id="<?php echo $evento->id; ?>" 
+        class="evento__agregar"
+        <?php echo ($evento->disponibles === "0") ? 'disabled' : ''; ?>
+        ><?php echo ($evento->disponibles === "0") ? 'Agotado' : 'Agregar - ' . $evento->disponibles . ' Disponibles'; ?>
+        </button>
     </div>
 </div>
