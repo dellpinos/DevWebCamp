@@ -93,12 +93,12 @@
         <div class="boleto boleto--presencial">
             <h4 class="boleto__logo">&#60DevWebCamp/&gt</h4>
             <p class="boleto__plan">Presencial</p>
-            <p class="boleto__precio">$199</p>
+            <p class="boleto__precio">$249</p>
         </div>
         <div class="boleto boleto--virtual">
             <h4 class="boleto__logo">&#60DevWebCamp/&gt</h4>
             <p class="boleto__plan">Virtual</p>
-            <p class="boleto__precio">$49</p>
+            <p class="boleto__precio">$69</p>
         </div>
         <div class="boleto boleto--gratis">
             <h4 class="boleto__logo">&#60DevWebCamp/&gt</h4>

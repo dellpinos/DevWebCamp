@@ -14,6 +14,7 @@ class PonentesController
     {
         if (!is_admin()) {
             header('Location: /login');
+            die();
         }
 
         $pagina_actual = $_GET['page'];

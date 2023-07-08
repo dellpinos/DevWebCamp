@@ -17,6 +17,7 @@ class EventosController
     {
         if (!is_admin()) {
             header('Location: /login');
+            return;
         }
         
         $pagina_actual = $_GET['page'];
@@ -51,6 +52,7 @@ class EventosController
     {
         if (!is_admin()) {
             header('Location: /login');
+            return;
         }
 
         $alertas = [];
@@ -64,6 +66,7 @@ class EventosController
 
             if (!is_admin()) {
                 header('Location: /login');
+                return;
             }
 
             $evento->sincronizar($_POST);
@@ -90,6 +93,7 @@ class EventosController
     {
         if (!is_admin()) {
             header('Location: /login');
+            return;
         }
 
         $alertas = [];
@@ -144,6 +148,7 @@ class EventosController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!is_admin()) {
                 header('Location: /login');
+                return;
             }
             $id = $_POST['id'];
             $evento = Evento::find($id);
