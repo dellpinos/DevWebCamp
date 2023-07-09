@@ -40,7 +40,7 @@ class RegistroController
         ]);
     }
 
-    public static function gratis(Router $router)
+    public static function gratis()
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -145,16 +145,11 @@ class RegistroController
         }
 
 
-
-
         // Redireccionar a boleto virtual si ya finalizo registro
-        if(isset($registro->regalo_id) && $registro->paquete_id === '1') { /// <<< Esta redireccionando a los usuarios nuevos
+        if($registro->completado !== 0) {
             header('Location: /boleto?id=' . urlencode($registro->token) . '#nav-scroll');
             return;
         }
-
-
-
 
 
         $eventos = Evento::ordenar('hora_id', 'ASC');
@@ -233,6 +228,12 @@ class RegistroController
 
                 // Almacenar regalo
                 $registro->sincronizar(['regalo_id' => $_POST['regalo_id']]);
+
+
+                $registro->completado = 1; /// Registro finalizado
+                
+
+
                 $resultado = $registro->guardar();
                 if($resultado) {
                     echo json_encode([

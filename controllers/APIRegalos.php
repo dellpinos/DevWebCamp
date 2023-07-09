@@ -12,6 +12,10 @@ class APIRegalos {
 
     public static function index() {
         
+        if(!is_admin()) {
+            echo json_encode([]);
+            return;
+        }
         $regalos = Regalo::all();
 
         foreach($regalos as $regalo) {
